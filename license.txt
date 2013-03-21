@@ -1,0 +1,8 @@
+dote
+-------------------------------------
+Some License Here
+
+rot.js
+--------------------------------------
+Copyright (c) 2012-now(), Ondrej Zara
+All rights reserved.
