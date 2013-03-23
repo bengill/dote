@@ -26,7 +26,7 @@ Player.prototype.handleEvent = function(e) {
     }
     var keyMap = {};
     // keyMap[38] = 0;
-    keyMap[75] = 0;
+    keyMap[38] = 0;
     keyMap[33] = 1;
     keyMap[39] = 2;
     keyMap[34] = 3;
