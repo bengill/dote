@@ -15,6 +15,7 @@ var Game = {
 
         this.engine = new ROT.Engine(); // create our asyncronous main loop
         this.engine.addActor(this.player); // an actor is anything with "getSpeed" or an "act" method
+        this.engine.addActor(this.pedro); // an actor is anything with "getSpeed" or an "act" method
         this.engine.start(); //calls the main loop. when this call returns, the loop is locked
     },
 
@@ -42,16 +43,17 @@ var Game = {
 
         this._generateBoxes(freeCells); // draws the * on the map (replaces the period)
         this._drawWholeMap(); // now we finally draw the map
-        this._createPlayer(freeCells); // add the player to the map
+        this.player = this._createBeing(Player, freeCells);
+        this.pedro = this._createBeing(Pedro, freeCells);
     },
 
-    _createPlayer: function(freeCells) {
+    _createBeing: function(what, freeCells) {
         var index = Math.floor(ROT.RNG.getUniform() * freeCells.length); // random 1 or 0 * freeCels.length
         var key = freeCells.splice(index, 1)[0]; // create a 2D coord
         var parts = key.split(","); // split the string by comma into an array
         var x = parseInt(parts[0], 10); // convert to a number
         var y = parseInt(parts[1], 10); // convert to a number
-        this.player = new Player(x, y); // create a new player, passing in x and y
+        return new  what(x, y); // create a new player, passing in x and y
     },
 
     _generateBoxes: function(freeCells) {
