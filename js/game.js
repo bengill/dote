@@ -35,7 +35,7 @@ var Game = {
             var key = x+","+y;
             // set that map key's value to a period
             // this map is the actual map object, the freeCells are just a way to remember what are map coords with a period are, more or less
-            this.map[key] = "·";
+            this.map[key] = ".";
             // add to the freeCells array
             freeCells.push(key);
         };
