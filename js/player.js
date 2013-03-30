@@ -1,7 +1,7 @@
 // our player class
 var Player = function(x, y) {
-    this._x = x; // x coord
-    this._y = y; // y coord
+    this._x = x;
+    this._y = y;
     this._draw(); // draw (an extended method that we added below)
 };
 

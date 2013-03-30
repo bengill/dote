@@ -1,0 +1,4 @@
+Game.Entity = function() {
+};
+
+

@@ -1,0 +1,28 @@
+{
+    "slow_guard": {
+        "transform" : {},
+        "perception": {
+            "distance":  4.0,
+            "angle": 30.0
+        },
+        "physics": {
+            "type": "circle",
+            "radius": 0.5
+        },
+        "ai": {
+            "behaviors" : [ "guard", "chase", "search", "script" ],
+            "speed": 2.0,
+            "stun": 5.0
+        },
+        "drawable3d" : {
+            "mesh" : "meshes/slow_guard.mesh"
+        }
+    },
+  "player" : {
+        "transform" : {},
+        "physics" : {},
+        "drawable3d" : {
+            "mesh" : "meshes/player.mesh"
+        }
+    }
+}

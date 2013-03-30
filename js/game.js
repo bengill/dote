@@ -1,19 +1,16 @@
 var Game = {
     // create our properties
+    engine: new ROT.Engine(),
     ananas: null,
     display: null,
     map: {},
-    engine: null,
     player: null,
 
     // initialize function
     init: function() {
         this.display = new ROT.Display(); // our visual map display
         document.body.appendChild(this.display.getContainer()); // add it to the end of our body tag
-
         this._generateMap(); // create our map
-
-        this.engine = new ROT.Engine(); // create our asyncronous main loop
         this.engine.addActor(this.player); // an actor is anything with "getSpeed" or an "act" method
         this.engine.addActor(this.pedro); // an actor is anything with "getSpeed" or an "act" method
         this.engine.start(); //calls the main loop. when this call returns, the loop is locked
@@ -40,7 +37,6 @@ var Game = {
             freeCells.push(key);
         };
         digger.create(digCallback.bind(this)); // create the map, passing in our call back
-
         this._generateBoxes(freeCells); // draws the * on the map (replaces the period)
         this._drawWholeMap(); // now we finally draw the map
         this.player = this._createBeing(Player, freeCells);
