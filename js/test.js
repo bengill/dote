@@ -12,19 +12,20 @@ game.rock = function() {
 // var foo = game.rock();
 // var bar = new game.rock();
 
-function loadDatos() {
+function loadData(json) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'json/archetypes.json', true);
+    xobj.open('GET', json, true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4) {
-            var jsonTexto = xobj.responseText;
-            window['archetypes'] = jsonTexto;
-            console.log(jsonTexto);
+            var jsonText = xobj.responseText;
+            window['archetypes'] = jsonText;
+            console.log(jsonText);
         }
     }
     xobj.send(null);
 }
 
-loadDatos();
+loadData('json/archetypes.json');
+loadData('json/levels.json');
 
