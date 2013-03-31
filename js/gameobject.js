@@ -23,10 +23,9 @@ GameObject.factory = function(descriptor){
 
 
   // merge the descriptor with the archetype
-  for (name in descriptor) {
+  for (name in components) {
     // only merge component descriptors
     if (typeof descriptor[name] == 'object') {
-              // this might be best as a concat????????
       components[name] = merge(components[name], descriptor[name]);
     }
   }
@@ -35,14 +34,14 @@ GameObject.factory = function(descriptor){
   var obj = new GameObject();
 
   // actually create the components
-  for (name in descriptor) {
-    if (typeof descriptor[name] !== 'object') continue;
+  for (name in components) {
+    if (typeof components[name] !== 'object') continue;
 
     // "guess" the name of the component constructor
     var type_name = name.charAt(0).toUpperCase() + name.slice(1) + 'Component';
 
     // construct the component
-    var component = new Component[type_name](this, descriptor[name]);
+    var component = new Component[type_name](this, components[name]);
 
     // register the component by name and in our ordered list
     obj[name] = component;

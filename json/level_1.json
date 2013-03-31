@@ -8,6 +8,12 @@
         "transform": {
             "position": [ 5, 9 ]
         }
+    },
+    {
+        "archetype": "tongue_snake",
+        "transform": {
+            "position": [ 8, 2 ]
+        }
     }
   ]
 }

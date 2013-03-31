@@ -27,5 +27,12 @@
     },
     "rock": {
         "transform": {}
+    },
+    "tongue_snake": {
+        "transform": {},
+        "perception" : {
+            "distance" :  4.0,
+            "angle" : 30.0
+        }
     }
 }
