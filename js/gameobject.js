@@ -4,7 +4,7 @@ function GameObject(descriptor) {
 
 GameObject.prototype.event = function(name, params){
   // "guess" name of the event handler
-  var handler_name = 'on' + name.charAt(0).toUpper() + name.slice(1);
+  var handler_name = 'on' + name.charAt(0).toUpperCase() + name.slice(1);
 
   // invoke event handler in each component if it exists
   for (var i = 0, e = this.components.length; i != e; ++i) {
@@ -16,11 +16,14 @@ GameObject.prototype.event = function(name, params){
 };
 
 GameObject.factory = function(descriptor){
+  var name;
+
   // get the archetype descriptor
   var components = clone(window.archetypes[descriptor.archetype]);
 
+
   // merge the descriptor with the archetype
-  for (var name in descriptor) {
+  for (name in descriptor) {
     // only merge component descriptors
     if (typeof descriptor[name] == 'object') {
               // this might be best as a concat????????
@@ -32,12 +35,14 @@ GameObject.factory = function(descriptor){
   var obj = new GameObject();
 
   // actually create the components
-  for (var name in descriptor) {
+  for (name in descriptor) {
+    if (typeof descriptor[name] !== 'object') continue;
+
     // "guess" the name of the component constructor
-    var type_name = name.charAt(0).toUpper() + name.slice(1) + 'Component';
+    var type_name = name.charAt(0).toUpperCase() + name.slice(1) + 'Component';
 
     // construct the component
-    var component = new type_name(this, descriptor[name]);
+    var component = new Component[type_name](this, descriptor[name]);
 
     // register the component by name and in our ordered list
     obj[name] = component;

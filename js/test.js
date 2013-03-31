@@ -12,20 +12,49 @@ game.rock = function() {
 // var foo = game.rock();
 // var bar = new game.rock();
 
-function loadData(json) {
+// MERGE
+function merge(obj1,obj2){
+    var attrname;
+    var obj3 = {};
+    for (attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
+}
+
+// CLONE
+function clone(obj){
+    if(obj === null || typeof(obj) != 'object')
+        return obj;
+
+    var temp = {};
+
+    for(var key in obj)
+        temp[key] = obj[key];
+    return temp;
+}
+
+// LOAD
+function loadData(json, where) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', json, true);
+    xobj.open('GET', json, false);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4) {
             var jsonText = xobj.responseText;
-            window['archetypes'] = jsonText;
+            window[where] = JSON.parse(jsonText);
             console.log(jsonText);
         }
-    }
+    };
     xobj.send(null);
 }
 
-loadData('json/archetypes.json');
-loadData('json/levels.json');
+function init() {
+    for (var i=0;i<window.levels.objects.length;i++) {
+        var test = GameObject.factory(window.levels.objects[i]);
+    }
+}
 
+loadData('json/archetypes.json', 'archetypes');
+loadData('json/level_1.json', 'levels');
+
+init();
