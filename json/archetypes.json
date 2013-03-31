@@ -18,11 +18,14 @@
             "mesh" : "meshes/slow_guard.mesh"
         }
     },
-  "player" : {
+    "player" : {
         "transform" : {},
         "physics" : {},
         "drawable3d" : {
             "mesh" : "meshes/player.mesh"
         }
+    },
+    "rock": {
+        "transform": {}
     }
 }

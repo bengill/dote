@@ -1,0 +1,13 @@
+{
+    "title": "Level 1",
+    "tiles": [ ],
+
+    "objects": [
+    {
+        "archetype": "rock",
+        "transform": {
+            "position": [ 5, 9 ]
+        }
+    }
+  ]
+}

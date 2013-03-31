@@ -4,13 +4,13 @@
 
     "objects": [
     {
-        "archetype": "slow_enemy",
+        "archetype": "slow_guard",
         "transform": {
             "position": [ 4.5, 3.5, 0.0 ]
         }
     },
     {
-        "archetype": "slow_enemy",
+        "archetype": "slow_guard",
         "transform": {
             "position": [ 8.5,43.5, 0.0 ]
         },
