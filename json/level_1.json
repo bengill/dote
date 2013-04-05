@@ -1,7 +1,9 @@
 {
-    "title": "Level 1",
-    "tiles": [ ],
-
+    "title": "Temple I",
+    "desc": "This is a description of the temple.",
+    "map": {
+        "type": "digger"
+    },
     "objects": [
     {
         "archetype": "rock",
