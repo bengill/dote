@@ -21,7 +21,6 @@ GameObject.factory = function(descriptor){
   // get the archetype descriptor
   var components = clone(window.archetypes[descriptor.archetype]);
 
-
   // merge the descriptor with the archetype
   for (name in components) {
     // only merge component descriptors
@@ -47,6 +46,9 @@ GameObject.factory = function(descriptor){
     obj[name] = component;
     obj.components.push(component);
   }
+
+  // add the name
+  obj.archetype = descriptor.archetype;
 
   // send a "create" event to all our components
   // signaling that the whole object is created
